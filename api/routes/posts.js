@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
           _id: post._id,
           request: {
             type: "GET",
-            url: "http://localhost:3000/posts/" + post._id
+            url: "http://localhost:3001/posts/" + post._id
           }
         }
       })
@@ -44,7 +44,7 @@ router.post('/', async (req, res, next) => {
         _id: post._id,
         request: {
           type: "GET",
-          url: "http://localhost:3000/posts/" + post._id
+          url: "http://localhost:3001/posts/" + post._id
         }
       }
     });
@@ -77,7 +77,7 @@ router.patch('/:postId', async (req, res, next) => {
       message: "Post updated",
       request: {
         type: "GET",
-        url: "http://localhost:3000/posts/" + req.params.postId
+        url: "http://localhost:3001/posts/" + req.params.postId
       }
     });
   } catch (error) {
@@ -94,7 +94,7 @@ router.delete('/:postId', async (req, res, next) => {
       message: "Post deleted",
       request: {
         type: "POST",
-        url: "http://localhost:3000/posts",
+        url: "http://localhost:3001/posts",
         body: {title: "String", url: "String"}
       }
     });
