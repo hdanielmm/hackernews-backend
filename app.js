@@ -10,7 +10,10 @@ const commentRoutes = require('./api/routes/comments');
 mongoose.connect(
   "mongodb+srv://node-posts:" + 
   process.env.MONGO_ATLAS_PW + 
-  "@hackernews-x03vy.mongodb.net/test?retryWrites=true&w=majority")
+  "@hackernews-x03vy.mongodb.net/test?retryWrites=true&w=majority",
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
+// mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
