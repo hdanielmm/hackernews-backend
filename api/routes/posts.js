@@ -24,7 +24,6 @@ router.get('/', async (req, res, next) => {
     }
     res.status(200).json(response);
   } catch (error) {
-    res.status(500).json({ error });
     next(error);
   }
 });
@@ -49,7 +48,6 @@ router.post('/', async (req, res, next) => {
       }
     });
   } catch (error) {
-    res.status(500).json({ error: error });
     next(error);
   }
 });
@@ -61,7 +59,6 @@ router.get('/:postId', async (req, res, next) => {
     console.log("From database", post)
     post ? res.status(200).json(post) : res.status(404).json({ message: "No valid entry found for provided ID" });
   } catch (error) {
-    res.status(500).json({ error: error });
     next(error);
   }
 });
@@ -81,8 +78,6 @@ router.patch('/:postId', async (req, res, next) => {
       }
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ error });
     next(error);
   }
 });
@@ -99,7 +94,6 @@ router.delete('/:postId', async (req, res, next) => {
       }
     });
   } catch (error) {
-    res.status(500).json({ error });
     next(error);
   }
 });

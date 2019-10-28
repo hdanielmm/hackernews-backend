@@ -23,7 +23,6 @@ router.get('/', async (req, res, next) => {
       })
     });
   } catch (error) {
-    res.status(500).json({ error });
     next(error);
   }
 });
@@ -52,10 +51,8 @@ router.post('/', async (req, res, next) => {
       });
     }
   } catch (error) {
-    res.status(500).json({ error: "ID does not exits" })
     next(error);
   }
-
 });
 
 router.get('/:commentId', async (req, res, next) => {
@@ -72,11 +69,8 @@ router.get('/:commentId', async (req, res, next) => {
       }
     });
   } catch (error) {
-    res.status(500).json({ error });
     next(error);
   }
-
-
 });
 
 router.delete('/:commentId', async (req, res, next) => {
@@ -92,7 +86,6 @@ router.delete('/:commentId', async (req, res, next) => {
       }
     });
   } catch (error) {
-    res.status(500).json({ error });
     next(error);
   }
 });
